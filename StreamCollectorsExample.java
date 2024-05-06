@@ -53,7 +53,7 @@ public class StreamCollectorsExample {
     //Отсортируйте продукты по убыванию общей стоимости.
     Map<String, Double> orderMap4 = orderMap3.entrySet().stream()
             .sorted(Map.Entry.<String, Double>comparingByValue().reversed())
-            .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (product, cost) -> product, TreeMap::new));
+            .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (a, b) -> a, TreeMap::new));
     orderMap4.entrySet().forEach(System.out::println);
     System.out.println("________________________________________\n");
 
